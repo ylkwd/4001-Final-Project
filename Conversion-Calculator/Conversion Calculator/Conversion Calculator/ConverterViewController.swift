@@ -15,11 +15,6 @@ struct Converter {              //array struct
     var output_Unit: String
 }
 
-
-
-
-
-
 class ConverterViewController: UIViewController {
     
     @IBOutlet weak var outputDisplay: UITextField!
