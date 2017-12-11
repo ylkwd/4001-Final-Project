@@ -95,6 +95,9 @@
                                                         <state key="normal" title="+/-">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="negative:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nbg-in-Vtb"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKm-TD-BPm">
                                                         <rect key="frame" x="276.66666666666669" y="0.0" width="137.33333333333331" height="101"/>

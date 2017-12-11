@@ -64,30 +64,64 @@ class ConverterViewController: UIViewController {
         inputDisplay.textAlignment = .right
         outputDisplay.textAlignment = .right
         inputDisplay.text?.append(sender.currentTitle!)
-//        if let text = inputDisplay.text,
-//            let input = Double(text) {
-//            
-//            var output: Double
-//           
-////            switch choice {
-////            case 4:
-//////                output = fToC(input)
-////                output = 1
-////                print("1")
-////            case 1:
-////                output = cToF(input)
-////            case 2:
-////                output = mTok(input)
-////            case 3:
-////                output = kTom(input)
-////            default:
-////                return
-////            }
-////
-////            outputDisplay.text = "\(output)"
-//            
-//            
-//        }
+        if let text = inputDisplay.text,
+            let input = Double(text) {
+            
+            var output: Double
+           
+            switch choice {
+            case 0:
+                output = fToC(input)
+            case 1:
+                output = cToF(input)
+            case 2:
+                output = mTok(input)
+            case 3:
+                output = kTom(input)
+            default:
+                return
+            }
+
+            outputDisplay.text = "\(output)"
+            
+            
+        }
+    }
+    @IBAction func negative(_ sender: Any) {
+        if let text = inputDisplay.text,
+            var inputAsDouble = Double(text) {
+            inputAsDouble *= -1
+            inputDisplay.text = "\(inputAsDouble)"
+            updateResult()
+        } else {
+            inputDisplay.text = "-"
+            outputDisplay.text = "-"
+        }
+    }
+    func updateResult() {
+        
+        if let text = inputDisplay.text,
+            let input = Double(text) {
+            
+            var output: Double
+            
+            switch choice {
+            case 0:
+                output = fToC(input)
+            case 1:
+                output = cToF(input)
+            case 2:
+                output = mTok(input)
+            case 3:
+                output = kTom(input)
+            default:
+                return
+            }
+            
+            outputDisplay.text = "\(output)"
+            
+        }
+        
     }
     
     func mTok(_ miles: Double) -> Double {
@@ -128,15 +162,15 @@ class ConverterViewController: UIViewController {
             
             self.whiteText.text = "°F"
             self.blueText.text = "°C"
-//            self.choice = 0
-//            self.inputDisplay.text?.append((sender as AnyObject).currentTitle!!)
+            self.choice = 0
+
             if let text = self.inputDisplay.text,
                 let input = Double(text) {
-                
+
                 self.result = self.fToC(input)
             }
-            self.outputDisplay.text = "\(self.result)"
-                
+//            self.outputDisplay.text = "\(self.result)"
+            self.updateResult()
         }))
         
         alert.addAction(UIAlertAction(title: "celcius to fahrenheit", style: UIAlertActionStyle.default, handler: { (alertAction) -> Void in
@@ -144,15 +178,15 @@ class ConverterViewController: UIViewController {
             self.whiteText.text = "°C"
             self.blueText.text = "°F"
             
-//            self.choice = 1
-            if let text = self.inputDisplay.text,
-                let input = Double(text) {
-                
-                self.result = self.cToF(input)
-            }
-            self.outputDisplay.text = "\(self.result)"
+            self.choice = 1
+//            if let text = self.inputDisplay.text,
+//                let input = Double(text) {
+//
+//                self.result = self.cToF(input)
+//            }
+//            self.outputDisplay.text = "\(self.result)"
             
-  
+            self.updateResult()
         }))
         
         alert.addAction(UIAlertAction(title: "miles to kilometers", style: UIAlertActionStyle.default, handler: { (alertAction) -> Void in
@@ -160,15 +194,15 @@ class ConverterViewController: UIViewController {
             self.whiteText.text = "mi"
             self.blueText.text = "km"
             
-//            self.choice = 2
-            if let text = self.inputDisplay.text,
-                let input = Double(text) {
-                
-                self.result = self.mTok(input)
-            }
-            self.outputDisplay.text = "\(self.result)"
+            self.choice = 2
+//            if let text = self.inputDisplay.text,
+//                let input = Double(text) {
+//
+//                self.result = self.mTok(input)
+//            }
+//            self.outputDisplay.text = "\(self.result)"
             
-
+            self.updateResult()
         }))
         
         alert.addAction(UIAlertAction(title: "kilometers to miles", style: UIAlertActionStyle.default, handler: { (alertAction) -> Void in
@@ -176,14 +210,14 @@ class ConverterViewController: UIViewController {
             self.whiteText.text = "km"
             self.blueText.text = "mi"
             
-//            self.choice = 3
-            if let text = self.inputDisplay.text,
-                let input = Double(text) {
-                
-                self.result = self.kTom(input)
-            }
-            self.outputDisplay.text = "\(self.result)"
-            
+            self.choice = 3
+//            if let text = self.inputDisplay.text,
+//                let input = Double(text) {
+//
+//                self.result = self.kTom(input)
+//            }
+//            self.outputDisplay.text = "\(self.result)"
+             self.updateResult()
         }))
         
         self.present(alert, animated: true, completion: nil)
