@@ -92,7 +92,28 @@ class ConverterViewController: UIViewController {
             var inputAsDouble = Double(text) {
             inputAsDouble *= -1
             inputDisplay.text = "\(inputAsDouble)"
-            updateResult()
+//            updateResult()
+            if let text = inputDisplay.text,
+                let input = Double(text) {
+                
+                var output: Double
+                
+                switch choice {
+                case 0:
+                    output = fToC(input)
+                case 1:
+                    output = cToF(input)
+                case 2:
+                    output = mTok(input)
+                case 3:
+                    output = kTom(input)
+                default:
+                    return
+                }
+                
+                outputDisplay.text = "\(output)"
+                
+            }
         } else {
             inputDisplay.text = "-"
             outputDisplay.text = "-"
