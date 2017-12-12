@@ -24,17 +24,18 @@ class ConverterViewController: UIViewController {
     @IBOutlet weak var whiteText: UITextField!
     
     var numbers: String = ""
-    var choice: Int = 1
+    var choice: Int = 0
     var count = 0
     var current = 0
     var result: Double = 0
-    var ConvertersArray = [Converter]() //init array
-    let alert = UIAlertController(title: "Choose Converter", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+//    var ConvertersArray = [Converter]() //init array
+//    let alert = UIAlertController(title: "Choose Converter", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.whiteText.text = "°F"
         self.blueText.text = "°C"
+        
         
     //give array instances
 //    ConvertersArray =
@@ -84,16 +85,14 @@ class ConverterViewController: UIViewController {
         }
     }
     @IBAction func negative(_ sender: Any) {
-        if let text = inputDisplay.text,
-            var input = Double(text) {
-            input = input * -1
-            inputDisplay.text = "\(input)"
-            
+
+
             if let text = inputDisplay.text,
-                let input = Double(text) {
-                
+                var input = Double(text) {
+                input = input * -1
+                inputDisplay.text = "\(input)"
                 var result: Double
-                
+
                 switch choice {
                 case 0:
                     result = fToC(input)
@@ -106,14 +105,11 @@ class ConverterViewController: UIViewController {
                 default:
                     return
                 }
-                
+
                 outputDisplay.text = "\(result)"
-                
+
             }
-        } else {
-            inputDisplay.text = "-"
-            outputDisplay.text = "-"
-        }
+
     }
     func updateResult() {
         
