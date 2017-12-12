@@ -66,52 +66,48 @@ class ConverterViewController: UIViewController {
         inputDisplay.text?.append(sender.currentTitle!)
         if let text = inputDisplay.text,
             let input = Double(text) {
-            
-            var output: Double
-           
+            var result: Double
             switch choice {
             case 0:
-                output = fToC(input)
+                result = fToC(input)
             case 1:
-                output = cToF(input)
+                result = cToF(input)
             case 2:
-                output = mTok(input)
+                result = mTok(input)
             case 3:
-                output = kTom(input)
+                result = kTom(input)
             default:
                 return
             }
-
-            outputDisplay.text = "\(output)"
-            
+            outputDisplay.text = "\(result)"
             
         }
     }
     @IBAction func negative(_ sender: Any) {
         if let text = inputDisplay.text,
-            var inputAsDouble = Double(text) {
-            inputAsDouble *= -1
-            inputDisplay.text = "\(inputAsDouble)"
-//            updateResult()
+            var input = Double(text) {
+            input = input * -1
+            inputDisplay.text = "\(input)"
+            
             if let text = inputDisplay.text,
                 let input = Double(text) {
                 
-                var output: Double
+                var result: Double
                 
                 switch choice {
                 case 0:
-                    output = fToC(input)
+                    result = fToC(input)
                 case 1:
-                    output = cToF(input)
+                    result = cToF(input)
                 case 2:
-                    output = mTok(input)
+                    result = mTok(input)
                 case 3:
-                    output = kTom(input)
+                    result = kTom(input)
                 default:
                     return
                 }
                 
-                outputDisplay.text = "\(output)"
+                outputDisplay.text = "\(result)"
                 
             }
         } else {
@@ -123,24 +119,20 @@ class ConverterViewController: UIViewController {
         
         if let text = inputDisplay.text,
             let input = Double(text) {
-            
-            var output: Double
-            
+            var result: Double
             switch choice {
             case 0:
-                output = fToC(input)
+                result = fToC(input)
             case 1:
-                output = cToF(input)
+                result = cToF(input)
             case 2:
-                output = mTok(input)
+                result = mTok(input)
             case 3:
-                output = kTom(input)
+                result = kTom(input)
             default:
                 return
             }
-            
-            outputDisplay.text = "\(output)"
-            
+            outputDisplay.text = "\(result)"
         }
         
     }
