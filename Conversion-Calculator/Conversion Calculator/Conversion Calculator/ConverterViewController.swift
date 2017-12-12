@@ -79,6 +79,7 @@ class ConverterViewController: UIViewController {
                 result = kTom(input)
             default:
                 return
+                    self.outputDisplay.text = "default"
             }
             outputDisplay.text = "\(result)"
             
@@ -104,34 +105,13 @@ class ConverterViewController: UIViewController {
                     result = kTom(input)
                 default:
                     return
+                        self.outputDisplay.text = "default"
                 }
-
                 outputDisplay.text = "\(result)"
-
             }
 
     }
-    func updateResult() {
-        
-        if let text = inputDisplay.text,
-            let input = Double(text) {
-            var result: Double
-            switch choice {
-            case 0:
-                result = fToC(input)
-            case 1:
-                result = cToF(input)
-            case 2:
-                result = mTok(input)
-            case 3:
-                result = kTom(input)
-            default:
-                return
-            }
-            outputDisplay.text = "\(result)"
-        }
-        
-    }
+   
     
     func mTok(_ miles: Double) -> Double {
         let total = miles * 1.61
@@ -230,6 +210,28 @@ class ConverterViewController: UIViewController {
         }))
         
         self.present(alert, animated: true, completion: nil)
+        
+    }
+    func updateResult() {
+        
+        if let text = inputDisplay.text,
+            let input = Double(text) {
+            var result: Double
+            switch choice {
+            case 0:
+                result = fToC(input)
+            case 1:
+                result = cToF(input)
+            case 2:
+                result = mTok(input)
+            case 3:
+                result = kTom(input)
+            default:
+                return
+                    self.outputDisplay.text = "default"
+            }
+            outputDisplay.text = "\(result)"
+        }
         
     }
     /*
